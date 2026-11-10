@@ -1,0 +1,21 @@
+==========================================================================
+Task B2: Adversarial Input Analysis & SQL Injection Demonstration
+==========================================================================
+--- 1. Testing Unsafe Dynamic SQL Concatenation ---
+Executing Unsafe Raw SQL: SELECT * FROM users WHERE id='admin' OR '1'='1' --' AND pwd='anyPassword'
+Result: Authenticated? true
+Vulnerability Confirmed: Injected tautology 'OR '1'='1'' changed query semantics, granting unauthorized access.
+
+--- 2. Testing PreparedStatement Parameter Binding ---
+Executing Parameterized Query: SELECT * FROM users WHERE id = ? AND pwd = ? [Param1='admin' OR '1'='1' --', Param2='anyPassword']
+Result: Authenticated? false
+Protection Confirmed: PreparedStatement treated payload as a literal string value. Injection completely neutralized.
+
+--- 3. Testing Adversarial & Corrupted CSV File Inputs ---
+Line 1: Successfully parsed valid pass: P101 (Rs 3500.00)
+Line 2: Empty line skipped.
+Line 3: Invalid field count (2 != 5). Skipping malformed row: P102,MALFORMED_SHORT
+Line 4: Non-numeric fee 'TenThousand'. Skipping.
+Line 5: Successfully parsed valid pass: P104 (Rs 4000.00)
+
+File Processing Summary -> Valid Records: 2 | Corrupted / Skipped: 3

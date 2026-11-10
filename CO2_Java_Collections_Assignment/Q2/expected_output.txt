@@ -1,0 +1,42 @@
+Q2: Music Playlist Editor Data Structure Benchmark
+Comparing ArrayList vs LinkedList vs ArrayDeque
+
+==========================================================================================
+Playlist Size: 1000 songs | Benchmark Sample Ops: 500
+==========================================================================================
+Operation                | ArrayList (ms)   | LinkedList (ms)  | ArrayDeque (ms) 
+------------------------------------------------------------------------------------------
+Add at End (1000)        |           20.941 |            1.909 |            0.988
+Insert Front (500)       |            0.697 |            0.299 |            0.210
+Insert Middle (500)      |            0.488 |            3.210 |   N/A (No Index)
+Remove Front (500)       |            0.435 |            0.088 |            0.053
+Remove Middle (500)      |            0.194 |            1.436 |   N/A (No Index)
+Get k-th Element (500)   |            0.045 |            0.577 |   N/A (No Index)
+Full Iteration           |            0.197 |            0.214 |            0.163
+
+==========================================================================================
+Playlist Size: 10000 songs | Benchmark Sample Ops: 1000
+==========================================================================================
+Operation                | ArrayList (ms)   | LinkedList (ms)  | ArrayDeque (ms) 
+------------------------------------------------------------------------------------------
+Add at End (10000)       |            1.916 |            1.559 |            2.260
+Insert Front (1000)      |            2.011 |            0.123 |            0.138
+Insert Middle (1000)     |            0.700 |           11.953 |   N/A (No Index)
+Remove Front (1000)      |            1.233 |            0.054 |            0.137
+Remove Middle (1000)     |            0.553 |            8.904 |   N/A (No Index)
+Get k-th Element (1000)  |            0.095 |            4.389 |   N/A (No Index)
+Full Iteration           |            0.644 |            0.653 |            0.627
+
+==========================================================================================
+Playlist Size: 50000 songs | Benchmark Sample Ops: 2000
+==========================================================================================
+Operation                | ArrayList (ms)   | LinkedList (ms)  | ArrayDeque (ms) 
+------------------------------------------------------------------------------------------
+Add at End (50000)       |            6.039 |            6.051 |            6.747
+Insert Front (2000)      |            9.892 |            0.257 |            0.246
+Insert Middle (2000)     |            6.061 |          189.994 |   N/A (No Index)
+Remove Front (2000)      |            9.714 |            0.057 |            0.067
+Remove Middle (2000)     |            6.010 |          113.750 |   N/A (No Index)
+Get k-th Element (2000)  |            0.106 |           54.818 |   N/A (No Index)
+Full Iteration           |            0.470 |            0.428 |            0.384
+

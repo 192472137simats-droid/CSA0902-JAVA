@@ -1,0 +1,5 @@
+Initializing Campus Event Registration System...
+Test 1 Passed: Normal registrations saved.
+Test 2 Passed: Duplicate registration successfully caught & rejected -> DUPLICATE_ENTRY: Student STU101 is already registered for Hackathon
+Test 3 Passed: Invalid input correctly rejected -> Student ID cannot be empty.
+Test 4 Passed: Filter for 'Hackathon' retrieved 1 record(s).

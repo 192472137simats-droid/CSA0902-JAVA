@@ -1,0 +1,3 @@
+Initializing LibrarySearchScreen...
+Default Window Dimensions: 650x400
+Resized Window Dimensions: 900x600 (Results area expands dynamically via BorderLayout.CENTER)

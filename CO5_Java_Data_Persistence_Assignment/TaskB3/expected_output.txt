@@ -1,0 +1,11 @@
+==========================================================================
+Task B3: Statement vs PreparedStatement vs Batch Ingestion Analysis
+==========================================================================
+Ingestion Strategy               | Records Inserted | Network Roundtrips | Time (ms)       
+---------------------------------------------------------------------------------------------
+Statement / Indiv PreparedStatement |            10000 |              10000 |            2.730
+Batch PreparedStatement (1000)   |            10000 |                 10 |            2.632
+
+--- B3.3: Halfway Ingestion Failure Demonstration ---
+Auto-commit ON: Failure occurred -> Committed rows in DB: 500 (Incomplete/Corrupted Data!)
+Single Transaction with Rollback: Failure occurred -> Committed rows in DB: 0 (Clean state: 0 rows leaked!)

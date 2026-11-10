@@ -1,0 +1,30 @@
+Q4: Hospital Pharmacy Stock Lookup & Reporting Benchmark
+Comparing HashMap vs TreeMap vs LinkedHashMap
+
+====================================================================================================
+Catalog Size: 500 medicines | Lookups: 100000
+====================================================================================================
+Map Implementation | 100k Lookups (ms) | Code-Order Report (ms)   | Insertion-Order Report (ms)
+----------------------------------------------------------------------------------------------------
+HashMap            |            6.692 |                    0.901 | Requires External Tracking
+TreeMap            |           12.942 |                    0.483 | Requires External Tracking
+LinkedHashMap      |            5.197 |                    0.547 |                    0.281
+
+====================================================================================================
+Catalog Size: 5000 medicines | Lookups: 100000
+====================================================================================================
+Map Implementation | 100k Lookups (ms) | Code-Order Report (ms)   | Insertion-Order Report (ms)
+----------------------------------------------------------------------------------------------------
+HashMap            |            3.081 |                    6.052 | Requires External Tracking
+TreeMap            |           23.951 |                    0.411 | Requires External Tracking
+LinkedHashMap      |            1.465 |                    4.345 |                    0.548
+
+====================================================================================================
+Catalog Size: 50000 medicines | Lookups: 100000
+====================================================================================================
+Map Implementation | 100k Lookups (ms) | Code-Order Report (ms)   | Insertion-Order Report (ms)
+----------------------------------------------------------------------------------------------------
+HashMap            |            6.399 |                   34.620 | Requires External Tracking
+TreeMap            |           57.299 |                    2.932 | Requires External Tracking
+LinkedHashMap      |            2.940 |                   25.965 |                    0.628
+

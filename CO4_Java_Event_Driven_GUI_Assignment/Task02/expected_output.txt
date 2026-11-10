@@ -1,0 +1,2 @@
+OutpatientDesk successfully initialized.
+Verification Status: CONFIRMED: PAT-9082 with Dr. Sharma at 09:00 AM - 10:00 AM

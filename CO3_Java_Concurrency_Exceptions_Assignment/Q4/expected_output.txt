@@ -1,0 +1,28 @@
+==========================================================
+Q4: Parallel Answer-Script Scanning Simulation
+==========================================================
+
+--- Experiment 1: Calling run() vs start() Evidence ---
+Invoking syncTask.run() directly:
+[Station 99] Started on Thread: main
+[Station 99] Finished scanning 100 scripts.
+Invoking new Thread(syncTask).start():
+[Station 99] Started on Thread: DedicatedScannerThread-1
+[Station 99] Finished scanning 100 scripts.
+
+--- Experiment 2: 4 Parallel Scanning Stations with join() ---
+Active check immediately after launch: Station-1 isAlive? true
+[Station 1] Started on Thread: ScannerStation-1
+[Station 3] Started on Thread: ScannerStation-3
+[Station 2] Started on Thread: ScannerStation-2
+[Station 4] Started on Thread: ScannerStation-4
+[Station 3] Finished scanning 200 scripts.
+[Station 1] Finished scanning 250 scripts.
+[Station 2] Finished scanning 300 scripts.
+[Station 4] Finished scanning 250 scripts.
+All scanner stations completed. isAlive check: false
+>>> Verified Final Grand Total Scanned: 1000 (Expected 1000)
+
+--- Experiment 3: Daemon Thread Behavior ---
+Started daemon thread: BackgroundMonitorDaemon (isDaemon=true)
+Main thread now exiting. The daemon thread will be abruptly terminated by the JVM.

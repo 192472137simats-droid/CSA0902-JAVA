@@ -1,0 +1,4 @@
+Converter GUI initialized.
+Test 1 (Valid 10000 INR to USD): 120.00 USD
+Test 2 (Valid 5000 INR to EUR): 55.00 EUR
+Test 3 (Invalid 'abc'): Invalid amount

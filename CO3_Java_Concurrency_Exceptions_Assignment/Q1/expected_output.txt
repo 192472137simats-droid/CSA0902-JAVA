@@ -1,0 +1,33 @@
+==========================================================
+Q1: Bank ATM Simulation - Failure Handling & Tracing
+==========================================================
+--- Test 1: Valid Inputs ---
+
+[Transaction Initiated] Processing withdrawal...
+>>> SUCCESS: Dispensed Rs 2500.00 to Account 1234567890. Remaining Balance: Rs 7500.00
+[Finally Block Executed] Card ejected safely. Session audit logged. State closed.
+
+--- Test 2: Non-numeric Amount ---
+
+[Transaction Initiated] Processing withdrawal...
+[Finally Block Executed] Card ejected safely. Session audit logged. State closed.
+
+--- Test 3: Negative Amount ---
+
+[Transaction Initiated] Processing withdrawal...
+Handling Format Error: For input string: "FiveThousand"
+Handling Argument Error: Withdrawal amount must be strictly positive. Received: -500.0
+[Finally Block Executed] Card ejected safely. Session audit logged. State closed.
+
+--- Test 4: Overdraft / Insufficient Balance ---
+
+[Transaction Initiated] Processing withdrawal...
+Handling Account Error: Requested Rs 50000.0 exceeds balance of Rs 7500.0
+[Finally Block Executed] Card ejected safely. Session audit logged. State closed.
+
+--- Test 5: Missing Card Reader Config ---
+
+[Transaction Initiated] Processing withdrawal...
+[Finally Block Executed] Card ejected safely. Session audit logged. State closed.
+Handling Hardware/System Error: Card reader hardware config missing: missing_hardware.cfg
+Main caught propagating checked exception: Card reader hardware config missing: missing_hardware.cfg

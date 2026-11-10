@@ -1,0 +1,11 @@
+==========================================================
+Q3: Resource Safety & Daily Sales Report Generator
+==========================================================
+
+--- Running Manual try-finally Processing ---
+Manual Pipeline Caught Failure: Data corruption error encountered in store_3.txt
+Manual cleanup complete. Estimated dangling file handles: 1
+
+--- Running try-with-resources Processing ---
+Safely logged single store error (store_3.txt): Corrupted payload in store_3.txt. Resource auto-closed.
+Report completed. All file handles strictly auto-closed in reverse acquisition order.

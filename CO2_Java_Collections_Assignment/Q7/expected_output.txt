@@ -1,0 +1,31 @@
+==========================================================================================
+Q7: Day-4 Design Challenge - Hospital Triage Bottleneck Diagnosis & Validation
+==========================================================================================
+
+--- Experiment 1: Starvation Simulation Under Continuous Influx ---
+Scenario: 1 Minor patient (S5) arrives at t=0. Subsequently, 20 high-severity patients (S1-S2) arrive.
+
+Doctors treat first 6 patients:
+Original PriorityQueue Treatment Order:
+  Treated: Critical_1(S1,arr:1) | Remaining queue size: 12
+  Treated: Critical_2(S1,arr:2) | Remaining queue size: 11
+  Treated: Critical_3(S1,arr:3) | Remaining queue size: 10
+  Treated: Critical_4(S1,arr:4) | Remaining queue size: 9
+  Treated: Critical_5(S1,arr:5) | Remaining queue size: 8
+  Treated: Critical_6(S1,arr:6) | Remaining queue size: 7
+-> Result: MinorPatient_Asha is STARVED at bottom of PriorityQueue and not treated.
+
+Redesigned Multi-Level Aging Queue Treatment Order:
+  Treated: Critical_1(S1,arr:1) | Remaining queue size: 12
+  Treated: Critical_2(S1,arr:2) | Remaining queue size: 11
+  Treated: Critical_3(S1,arr:3) | Remaining queue size: 10
+  Treated: Critical_4(S1,arr:4) | Remaining queue size: 9
+  Treated: Critical_5(S1,arr:5) | Remaining queue size: 8
+  Treated: MinorPatient_Asha(S1,arr:0) | Remaining queue size: 7
+-> Result: MinorPatient_Asha aged and promoted from S5 -> S4 -> S3 -> S2, successfully treated!
+
+--- Experiment 2: Large Scale Performance Benchmark (50,000 Patients) ---
+Solution Architecture            | Admit Time (ms)    | Poll Time (ms)     | Starvation Bounded?
+--------------------------------------------------------------------------------------------------
+Original PriorityQueue (Heap)    |             10.931 |             25.076 | NO (Infinite wait)
+Redesign (5-Bucket Aging Queue)  |              2.090 |              4.612 | YES (Strictly Bounded)
